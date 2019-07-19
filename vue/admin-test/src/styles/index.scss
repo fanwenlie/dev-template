@@ -1,0 +1,59 @@
+@import './default/base.scss';
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-plugin.scss';
+@import './sidebar.scss';
+
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// ::-webkit-scrollbar-track-piece {
+//     width: 6px;
+//     background-color: #fff;
+// }
+// ::-webkit-scrollbar {
+//     width: 5px;
+//     height: 6px;
+// }
+// ::-webkit-scrollbar-thumb {
+//     background: #b9b8b9;
+//     border-radius: 3px;
+// }
+// ::-webkit-scrollbar-thumb:hover {
+//     background: #858185;
+// }
+.app {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bscroll-vertical-scrollbar {
+  width: 4px !important;
+}
+
+#nprogress .bar {
+  background: #2d8cf0 !important;
+}
+//main-container全局样式
+.app-main{
+  min-height: 100%
+}
+
+.app-container {
+  padding: 20px;
+}
