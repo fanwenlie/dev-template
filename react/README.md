@@ -1,0 +1,4 @@
+```
+|———— ant-mobile/  简单移动端开发模板，只依赖ant-mobile，promise， fastclick, 没有安装其他插件
+
+```
