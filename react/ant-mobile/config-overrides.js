@@ -4,16 +4,34 @@ const {
 } = require('customize-cra')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const os = require('os')
 
 const theme = require('./theme')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
+function getLocalIp() {
+  const interfaces = os.networkInterfaces()
+  let IPv4
+
+  Object.values(interfaces).forEach(iface => {
+    for (let i = 0; i < iface.length; i++) {
+      const alias = iface[i]
+      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+        IPv4 = alias.address
+      }
+    }
+  })
+  return IPv4
+}
+
+const localIp = getLocalIp()
+
 const devServerConfig = () => config => ({
   ...config,
   proxy: {
     // '/apis': {
-    //   target: 'xxxx',
+    //   target: `${localIp}xxxx`,
     //   changeOrigin: true,
     //   pathRewrite: {
     //     '^/apis': '',

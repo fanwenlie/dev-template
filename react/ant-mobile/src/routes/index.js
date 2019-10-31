@@ -1,43 +1,22 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import { connect } from 'react-redux'
 
-import Homepage from '@/views/Homepage'
+import { HashRouter as Router, Switch } from 'react-router-dom'
 
-import { fetchServerTime } from '@/store/actions'
+import IndexRoute from './routes'
 
-class IndexRoute extends Component {
-  state = {
-    logged: true,
-  }
-
-  componentDidMount() {
-    // eslint-disable-next-line react/destructuring-assignment
-    Promise.all([this.props.fetchServerTime()])
-      .then(() => this.setState({ logged: false }))
-      .catch(err => console.error(err))
-  }
-
+class RouteView extends Component {
   render() {
-    const { logged } = this.state
-
-    if (logged) {
-      return <div className="text-center margin-top10">Loading...</div>
-    }
-
     return (
       <>
-        <Route
-          path="/"
-          exact
-          component={Homepage}
-        />
+        <Router>
+          <Switch>
+            <IndexRoute />
+          </Switch>
+        </Router>
       </>
     )
   }
 }
 
-export default connect(
-  null,
-  { fetchServerTime },
-)(IndexRoute)
+export default RouteView
